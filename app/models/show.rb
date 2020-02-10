@@ -22,4 +22,10 @@ class Show < ActiveRecord::Base
     Show.sum(:rating)
   end
 
+  def self.popular_shows
+    shows = []
+    shows << Show.where("rating > ?", 5)
+    shows
+  end
+
 end
